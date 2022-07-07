@@ -2,7 +2,7 @@ import * as cookie from 'cookie'
 
 export const handle = async ({ event, resolve }) => {
   const cookies = cookie.parse(event.request.headers.get('cookie') || '')
-  event.locals.userid = cookies['userid']
+  event.locals.userid = cookies['userid'] || Math.random(0, 1).toString(36).substring(2, 15)
 
   const response = await resolve(event)
 
