@@ -1,9 +1,8 @@
 import * as cookie from 'cookie'
-import * as crypto from 'crypto'
 
 export const handle = async ({ event, resolve }) => {
   const cookies = cookie.parse(event.request.headers.get('cookie') || '')
-  event.locals.userid = cookies['userid'] || crypto.randomUUID()
+  event.locals.userid = cookies['userid']
 
   const response = await resolve(event)
 
