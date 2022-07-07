@@ -1,5 +1,5 @@
 import * as cookie from 'cookie'
-import crypto from 'crypto'
+import * as crypto from 'crypto'
 
 export const handle = async ({ event, resolve }) => {
   const cookies = cookie.parse(event.request.headers.get('cookie') || '')
